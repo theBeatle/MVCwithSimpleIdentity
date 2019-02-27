@@ -100,5 +100,24 @@ namespace MVCwithSimpleIdentity.Controllers
             AuthManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
+
+
+        public ActionResult LoadUser()
+        {
+            //var userToFind = await UserManager.FindByEmailAsync(User.Identity.Name);
+
+            var userToFind =
+                Task.Run(async ()
+                    => { await UserManager.FindByEmailAsync(User.Identity.Name); });
+            var user = userToFind.Wait();
+
+            if (userToFind == null)
+                return PartialView("_PartialLoginView", null);
+            else
+                return PartialView("_PartialLoginView",
+                    new SmallUserModel { Name = userToFind.Name, Surname = userToFind.Surname });
+        }
+
+
     }
 }

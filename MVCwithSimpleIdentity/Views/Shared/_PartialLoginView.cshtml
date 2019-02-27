@@ -1,14 +1,19 @@
-﻿@if (User.Identity.IsAuthenticated)
+﻿@model MVCwithSimpleIdentity.Models.ViewModels.SmallUserModel
+@{
+    var user = Model != null ? Model.Name + " " + Model.Surname : "User";
+}
+@if (User.Identity.IsAuthenticated)
 {
-    <li>
-        @Html.ActionLink("Hello "+User.Identity.Name +" !",
+    <li class="list-inline-item">
+
+        @Html.ActionLink("Hello "+user +" !",
                          "Index",
                          "ManageProfile",
                          routeValues: null,
                          htmlAttributes: new { @class= "btn btn-outline-success",
                                                title ="Edite profile" })
     </li>
-    <li>
+    <li class="list-inline-item">
         @Html.ActionLink("Log Out",
                          "Logout",
                          "Account",
@@ -19,7 +24,7 @@
 }
 else
 {
-    <li>
+    <li class="list-inline-item">
         @Html.ActionLink("Sign Up",
                          "Register",
                          "Account",
@@ -27,7 +32,7 @@ else
                          htmlAttributes: new { @class= "btn btn-outline-danger",
                                                title ="Register new user" })
     </li>
-    <li>
+    <li class="list-inline-item">
         @Html.ActionLink("Sign In",
                          "Login",
                          "Account",

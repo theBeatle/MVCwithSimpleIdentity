@@ -165,6 +165,7 @@
     </Compile>
     <Compile Include="Models\DbModels\ApplicationUser.cs" />
     <Compile Include="Models\DbModels\Ocupation.cs" />
+    <Compile Include="Models\ViewModels\SmallUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

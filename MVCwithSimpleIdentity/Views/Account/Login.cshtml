@@ -14,7 +14,8 @@
     <div>
         <h5>User login form</h5>
         @Html.ValidationSummary()
-        @Html.Hidden("returnUrl", new { value = ViewBag.returnUrl })
+        <input type="hidden" name="returnUrl" value = @ViewBag.returnUrl />
+        @*@Html.Hidden("returnUrl", new { value = ViewBag.returnUrl })*@
         <div>
             @Html.DisplayNameFor(m => m.Email)
             @Html.EditorFor(m => m.Email)

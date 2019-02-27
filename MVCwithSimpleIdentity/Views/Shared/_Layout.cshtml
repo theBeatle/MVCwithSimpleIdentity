@@ -14,7 +14,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
@@ -26,10 +26,9 @@
                     @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
                 </li>
             </ul>
-            <ul>
-                <li class="nav-item">
-                    @Html.Partial("_PartialLoginView")
-                </li>
+            <ul class="list-inline">
+                @Html.Action("LoadUser","Account")
+                @*@Html.Partial("_PartialLoginView")*@
             </ul>
         </div>
     </nav>
