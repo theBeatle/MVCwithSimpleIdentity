@@ -1,0 +1,53 @@
+﻿@model MVCwithSimpleIdentity.Models.ViewModels.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+}
+<h2>Register</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <h5>User registration form</h5>
+        @Html.ValidationSummary()
+        <div>
+            @Html.DisplayNameFor(m => m.Email)
+            @Html.EditorFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div>
+            @Html.DisplayNameFor(m => m.BirthDay)
+            @Html.EditorFor(m => m.BirthDay)
+            @Html.ValidationMessageFor(m => m.BirthDay)
+        </div>
+        <div>
+            @Html.DisplayNameFor(m => m.Name)
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+        <div>
+            @Html.DisplayNameFor(m => m.Surname)
+            @Html.EditorFor(m => m.Surname)
+            @Html.ValidationMessageFor(m => m.Surname)
+        </div>
+        <div>
+            @Html.DisplayNameFor(m => m.Password)
+            @Html.EditorFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <div>
+            @Html.DisplayNameFor(m => m.PasswordConfirm)
+            @Html.EditorFor(m => m.PasswordConfirm)
+            @Html.ValidationMessageFor(m => m.PasswordConfirm)
+        </div>
+
+        <div>
+            <input type="submit" value="Reg User" />
+        </div>
+        <div>
+            <input type="reset" value="Clear form" />
+        </div>
+    </div>
+}

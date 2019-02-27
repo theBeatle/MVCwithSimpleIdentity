@@ -1,0 +1,36 @@
+﻿@model MVCwithSimpleIdentity.Models.ViewModels.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div>
+        <h5>User login form</h5>
+        @Html.ValidationSummary()
+        @Html.Hidden("returnUrl", new { value = ViewBag.returnUrl })
+        <div>
+            @Html.DisplayNameFor(m => m.Email)
+            @Html.EditorFor(m => m.Email)
+        </div>
+        
+        <div>
+            @Html.DisplayNameFor(m => m.Password)
+            @Html.EditorFor(m => m.Password)
+        </div>
+
+        <div>
+            <input type="submit" value="Login User" />
+        </div>
+        <div>
+            <input type="reset" value="Clear form" />
+        </div>
+    </div>
+}
+
